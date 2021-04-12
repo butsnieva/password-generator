@@ -45,6 +45,12 @@ generatePassword = function(){
         console.log(specialConfirm);
       }
 
+    if (!lowercaseConfirm && !uppercaseConfirm && !numericConfirm && !specialConfirm) {
+      window.alert("At least one character type should be selected!");
+      generatePassword();
+    }
+
+
   var randomPassword = []
   for (var i = 0; i < passwordLength; i++) {
     var formula = Math.floor(Math.random() * characters.length);
@@ -52,7 +58,7 @@ generatePassword = function(){
     randomPassword.push(selectRandomCaharacter);
     console.log (randomPassword);
   }
- return randomPassword.join('');
+  return randomPassword.join('');
 
 
   };
