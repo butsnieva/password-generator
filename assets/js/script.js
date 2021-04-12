@@ -5,10 +5,8 @@ var numericChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var specialChar = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.', '"', '`', '*', '=', '|', ';', '<', '>'];
 
 
-
 generatePassword = function(){
   var passwordLength = window.prompt("How long do you want your password to be?");
-  console.log(passwordLength);
   while (passwordLength < 8 || passwordLength > 128) {
     passwordLength = alert("Password mast be at least 8 characters and no more than 128 characters long.");
     return generatePassword();
@@ -17,32 +15,23 @@ generatePassword = function(){
     alert("Please enter a number.");
     generatePassword();
   }
-  console.log("Your password is " + passwordLength + " characters long");
 
   var characters = [];
     var uppercaseConfirm = window.confirm("Do you want to include UPPERCASE characters?");
       if (uppercaseConfirm) {
-        writePassword = (Math.random()*uppercaseChar.length);
         characters = characters.concat(uppercaseChar);
-        console.log(uppercaseConfirm);
       }
     var lowercaseConfirm = window.confirm("Do you want to include LOWERCASE characters?");
       if (lowercaseConfirm) {
-        writePassword = (Math.random()*lowercaseChar.length);
         characters = characters.concat(lowercaseChar);
-        console.log(lowercaseConfirm);
       }
     var numericConfirm = window.confirm("Do you want to include NUMERIC characters?");
       if (numericConfirm) {
-        writePassword = (Math.random()*numericChar.length);
         characters = characters.concat(numericChar);
-        console.log(numericConfirm);
       }
     var specialConfirm = window.confirm("Do you want to include SPECIAL characters?");
       if (specialConfirm) {
-        writePassword = (Math.random()*specialChar.length);
         characters = characters.concat(specialChar);
-        console.log(specialConfirm);
       }
 
     if (!lowercaseConfirm && !uppercaseConfirm && !numericConfirm && !specialConfirm) {
@@ -56,14 +45,9 @@ generatePassword = function(){
     var formula = Math.floor(Math.random() * characters.length);
     var selectRandomCaharacter = characters[formula];
     randomPassword.push(selectRandomCaharacter);
-    console.log (randomPassword);
   }
   return randomPassword.join('');
-
-
-  };
-
-
+};
 
 
 
