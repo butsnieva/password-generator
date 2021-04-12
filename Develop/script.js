@@ -19,27 +19,43 @@ generatePassword = function(){
   }
   console.log("Your password is " + passwordLength + " characters long");
 
-  var uppercaseConfirm = window.confirm("Do you want to include UPPERCASE characters?");
-    if (uppercaseConfirm) {
-      writePassword = (Math.random()*uppercaseChar.length);
-      console.log(uppercaseConfirm);
-    }
-  var lowercaseConfirm = window.confirm("Do you want to include LOWERCASE characters?");
-    if (lowercaseConfirm) {
-      writePassword = (Math.random()*lowercaseChar.length);
-      console.log(lowercaseConfirm);
-    }
-  var numericConfirm = window.confirm("Do you want to include NUMERIC characters?");
-    if (numericConfirm) {
-      writePassword = (Math.random()*numericChar.length);
-      console.log(numericConfirm);
-    }
-  var specialConfirm = window.confirm("Do you want to include SPECIAL characters?");
-    if (specialConfirm) {
-      writePassword = (Math.random()*specialChar.length);
-      console.log(specialConfirm);
-    }
-};
+  var characters = [];
+    var uppercaseConfirm = window.confirm("Do you want to include UPPERCASE characters?");
+      if (uppercaseConfirm) {
+        writePassword = (Math.random()*uppercaseChar.length);
+        characters = characters.concat(uppercaseChar);
+        console.log(uppercaseConfirm);
+      }
+    var lowercaseConfirm = window.confirm("Do you want to include LOWERCASE characters?");
+      if (lowercaseConfirm) {
+        writePassword = (Math.random()*lowercaseChar.length);
+        characters = characters.concat(lowercaseChar);
+        console.log(lowercaseConfirm);
+      }
+    var numericConfirm = window.confirm("Do you want to include NUMERIC characters?");
+      if (numericConfirm) {
+        writePassword = (Math.random()*numericChar.length);
+        characters = characters.concat(numericChar);
+        console.log(numericConfirm);
+      }
+    var specialConfirm = window.confirm("Do you want to include SPECIAL characters?");
+      if (specialConfirm) {
+        writePassword = (Math.random()*specialChar.length);
+        characters = characters.concat(specialChar);
+        console.log(specialConfirm);
+      }
+
+  var randomPassword = []
+  for (var i = 0; i < passwordLength; i++) {
+    var formula = Math.floor(Math.random() * characters.length);
+    var selectRandomCaharacter = characters[formula];
+    randomPassword.push(selectRandomCaharacter);
+    console.log (randomPassword);
+  }
+ return randomPassword.join('');
+
+
+  };
 
 
 
