@@ -8,12 +8,12 @@ var specialChar = ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', 
 generatePassword = function(){
   var passwordLength = window.prompt("How long do you want your password to be?");
   while (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = alert("Password mast be at least 8 characters and no more than 128 characters long.");
+    alert("Password mast be at least 8 characters and no more than 128 characters long.");
     return generatePassword();
   }
   if (isNaN(passwordLength) === true) {
     alert("Please enter a number.");
-    generatePassword();
+    return generatePassword();
   }
 
   var characters = [];
@@ -33,14 +33,13 @@ generatePassword = function(){
       if (specialConfirm) {
         characters = characters.concat(specialChar);
       }
-
+      
     if (!lowercaseConfirm && !uppercaseConfirm && !numericConfirm && !specialConfirm) {
       window.alert("At least one character type should be selected!");
-      generatePassword();
-    }
+      return generatePassword();
+    } 
 
-
-  var randomPassword = []
+  var randomPassword = [];
   for (var i = 0; i < passwordLength; i++) {
     var formula = Math.floor(Math.random() * characters.length);
     var selectRandomCaharacter = characters[formula];
